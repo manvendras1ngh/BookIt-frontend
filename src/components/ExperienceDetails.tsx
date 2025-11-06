@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { experienceApi } from "../services/api";
 import type { FinalExperience, Slots } from "../utils/types";
 import { ArrowLeft } from "lucide-react";
+import Loader from "./Loader";
 
 const ExperienceDetails = () => {
   const { id } = useParams();
@@ -32,13 +33,7 @@ const ExperienceDetails = () => {
   }, [id]);
 
   if (!experience || loading) {
-    return (
-      <div>
-        <p className="text-xl font-light text-blue-600">
-          Loading your experience...
-        </p>
-      </div>
-    );
+    return <Loader />;
   }
 
   const { experienceName, imageUrl, details, about, price } = experience;

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useExperiences } from "../hooks/useExperiences";
 import type { FinalExperience } from "../utils/types";
+import Loader from "./Loader";
 
 const ExperienceCard = ({
   experiences,
@@ -41,7 +42,9 @@ const ExperienceCard = ({
   ));
 };
 const Experiences = () => {
-  const { experiences } = useExperiences();
+  const { experiences, experienceLoading } = useExperiences();
+
+  if (experienceLoading) return <Loader />;
 
   return (
     <section className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 md:p-12 xl:px-22 py-4">
