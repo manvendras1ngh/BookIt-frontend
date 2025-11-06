@@ -41,8 +41,7 @@ const ExperienceDetails = () => {
     );
   }
 
-  const { experienceName, location, imageUrl, details, about, price } =
-    experience;
+  const { experienceName, imageUrl, details, about, price } = experience;
 
   const slotArray: Slots[] = (experience as any).slots || [];
 
