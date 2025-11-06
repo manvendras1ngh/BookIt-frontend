@@ -12,7 +12,7 @@ const ExperienceCard = ({
       <img
         src={e.imageUrl}
         alt={e.experienceName}
-        className="rounded-t-xl w-full"
+        className="rounded-t-xl w-full md:h-[170px] object-cover max-h-70"
       />
       <div className="p-3 space-y-4 flex flex-col md:h-50 xl:h-auto">
         <section className="flex justify-between items-center">
