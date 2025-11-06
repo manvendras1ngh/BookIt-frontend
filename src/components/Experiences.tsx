@@ -30,7 +30,7 @@ const ExperienceCard = ({
             <span className="text-xl">₹{e.price}</span>
           </p>
           <Link
-            to={`/experiences/${e.id}`}
+            to={`/${e.id}`}
             className="bg-[#FFD643] px-2 py-1.5 rounded-sm text-xs"
           >
             View Details

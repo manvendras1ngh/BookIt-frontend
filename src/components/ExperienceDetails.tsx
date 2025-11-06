@@ -71,7 +71,7 @@ const ExperienceDetails = () => {
   return (
     <>
       <Link
-        to="/experiences"
+        to="/"
         className="flex items-center gap-2 text-sm px-6 mt-6 lg:px-12 xl:px-22"
       >
         <ArrowLeft size={15} />

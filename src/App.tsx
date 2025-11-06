@@ -8,13 +8,14 @@ import BookingConfirmation from "./components/BookingConfirmation";
 function App() {
   return (
     <Routes>
-      <Route path="/experiences" element={<Layout />}>
+      <Route element={<Layout />}>
         <Route index element={<Experiences />} />
-        <Route path="/experiences/:id" element={<ExperienceDetails />} />
-      </Route>
-      <Route path="/booking" element={<Layout />}>
-        <Route index element={<Booking />} />
-        <Route path="/booking/confirm" element={<BookingConfirmation />} />
+        <Route path=":id" element={<ExperienceDetails />} />
+
+        <Route path="booking">
+          <Route index element={<Booking />} />
+          <Route path="confirm" element={<BookingConfirmation />} />
+        </Route>
       </Route>
     </Routes>
   );

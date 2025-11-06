@@ -14,7 +14,7 @@ const BookingConfirmation = () => {
       <p className="font-light text-[#656565] mt-2">Ref ID: {bookingId}</p>
 
       <Link
-        to="/experiences"
+        to="/"
         className="bg-[#E3E3E3] text-[#656565] font-light mt-8 text-xs px-4 py-2 rounded-sm"
       >
         Back to Home
