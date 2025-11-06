@@ -19,7 +19,7 @@ const Navbar = () => {
           type="text"
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search experiences"
-          className="bg-[#EDEDED] p-3 w-[300px] rounded-md text-xs font-light"
+          className="bg-[#EDEDED] p-3 w-[300px] rounded-md text-xs font-light focus:outline-none"
         />
         <button
           className="bg-[#FFD643] py-3 px-5 text-xs rounded-md cursor-pointer hover:bg-yellow-400"
