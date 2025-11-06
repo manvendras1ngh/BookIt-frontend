@@ -44,7 +44,7 @@ const Experiences = () => {
   const { experiences } = useExperiences();
 
   return (
-    <section className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 p-12 xl:px-22">
+    <section className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 md:p-12 xl:px-22 py-4">
       <ExperienceCard experiences={experiences} />
     </section>
   );
