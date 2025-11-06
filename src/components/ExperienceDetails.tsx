@@ -72,17 +72,17 @@ const ExperienceDetails = () => {
     <>
       <Link
         to="/"
-        className="flex items-center gap-2 text-sm px-6 mt-6 lg:px-12 xl:px-22"
+        className="flex items-center gap-2 text-sm mt-6 lg:px-12 xl:px-22 cursor-pointer"
       >
         <ArrowLeft size={15} />
         Details
       </Link>
-      <div className="lg:flex lg:justify-between lg:items-start p-6 lg:px-12 xl:px-22 gap-8">
+      <div className="lg:flex lg:justify-between lg:items-start py-4 lg:px-12 xl:px-22 gap-8">
         <div className=" lg:max-w-[765px]">
           <img
             src={imageUrl}
             alt={experienceName}
-            className="rounded-xl w-full lg:max-h-[381px] lg:object-cover"
+            className="rounded-xl w-full max-h-[381px] object-cover"
           />
 
           <section className="py-6 space-y-6">
@@ -103,7 +103,7 @@ const ExperienceDetails = () => {
                         setSelectedDate(date);
                         setSelectedTime(null);
                       }}
-                      className={`px-4 py-1.5 rounded-md border transition font-light text-[#838383] text-sm ${
+                      className={`cursor-pointer px-4 py-1.5 rounded-md border transition font-light text-[#838383] text-sm ${
                         selectedDate === date
                           ? "bg-[#FFD643] text-black border-none"
                           : "border-[#BDBDBD] hover:border-[#FFD643]"
@@ -131,7 +131,7 @@ const ExperienceDetails = () => {
                           onClick={() =>
                             !isSoldOut && setSelectedTime(slot.time)
                           }
-                          className={`px-4 py-1.5 rounded-md border border-[#BDBDBD] transition flex items-center justify-between text-[#838383] font-light text-sm ${
+                          className={`cursor-pointer px-4 py-1.5 rounded-md border border-[#BDBDBD] transition flex items-center justify-between text-[#838383] font-light text-sm ${
                             isSoldOut
                               ? "bg-[#CCCCCC] text-[#838383] cursor-not-allowed"
                               : selectedTime === slot.time
@@ -225,7 +225,7 @@ const ExperienceDetails = () => {
             disabled={!selectedDate || !selectedTime}
             className={`px-6 py-2 rounded-md text-sm ${
               selectedDate && selectedTime
-                ? "bg-[#FFD643] hover:bg-yellow-500"
+                ? "bg-[#FFD643] hover:bg-yellow-500 cursor-pointer"
                 : "bg-[#D7D7D7] cursor-not-allowed text-[#7F7F7F]"
             }`}
           >

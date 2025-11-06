@@ -15,12 +15,14 @@ const Booking = () => {
   const [discount, setDiscount] = useState(0);
   const [agree, setAgree] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [promoValidating, setPromoValidating] = useState(false);
 
   const taxes = 59 * quantity;
   const subtotal = price * quantity;
   const total = subtotal + taxes - discount;
 
   const handlePromoApply = async () => {
+    setPromoValidating(true);
     try {
       const res = await promoApi(promo);
       if (res.valid) {
@@ -33,6 +35,8 @@ const Booking = () => {
     } catch (error) {
       console.error("Promo validation failed:", error);
       setDiscount(0);
+    } finally {
+      setPromoValidating(false);
     }
   };
 
@@ -65,13 +69,13 @@ const Booking = () => {
     <>
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center gap-2 text-sm px-6 mt-6 lg:px-12"
+        className="flex items-center gap-2 text-sm mt-6 lg:px-12 cursor-pointer"
       >
         <ArrowLeft size={15} />
         Checkout
       </button>
 
-      <div className="flex flex-col md:flex-row md:justify-between gap-8 px-6 lg:px-12 mt-8">
+      <div className="flex flex-col md:flex-row md:justify-between gap-8 lg:px-12 mt-8">
         {/* Left Form Section */}
         <div className="bg-[#EFEFEF] p-6 rounded-md flex flex-col gap-4 w-full md:max-w-[740px] lg:max-h-[200px]">
           <section className="flex flex-col gap-4 lg:flex-row">
@@ -109,21 +113,21 @@ const Booking = () => {
             <button
               type="button"
               onClick={handlePromoApply}
-              disabled={!promo}
+              disabled={!promo || promoValidating}
               className={`px-4 py-2 rounded-md text-sm font-light bg-black text-white hover:bg-zinc-800 cursor-pointer ${
                 !promo ? "cursor-not-allowed" : ""
               }`}
             >
-              Apply
+              {promoValidating ? "Validating" : "Apply"}
             </button>
           </div>
 
-          <label className="flex items-center text-xs text-[#5B5B5B] font-light">
+          <label className="flex items-center text-xs text-[#5B5B5B] font-light cursor-pointer">
             <input
               type="checkbox"
               checked={agree}
               onChange={() => setAgree(!agree)}
-              className="mr-2"
+              className="mr-2 cursor-pointer"
             />
             I agree to the terms and safety policy
           </label>
