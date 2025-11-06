@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useExperiences } from "../hooks/useExperiences";
 import type { FinalExperience } from "../utils/types";
 import Loader from "./Loader";
+import useExperienceContext from "../contexts/useExperienceContext";
 
 const ExperienceCard = ({
   experiences,
@@ -42,9 +42,15 @@ const ExperienceCard = ({
   ));
 };
 const Experiences = () => {
-  const { experiences, experienceLoading } = useExperiences();
+  const { experiences, experienceLoading, noResults } = useExperienceContext();
 
   if (experienceLoading) return <Loader />;
+  if (noResults)
+    return (
+      <div className="flex justify-center mt-60">
+        <h1 className="text-xl font-light">No data found!</h1>
+      </div>
+    );
 
   return (
     <section className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 md:p-12 xl:px-22 py-4">
