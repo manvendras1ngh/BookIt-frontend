@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center px-8 py-3 shadow-xl">
+    <nav className="flex justify-between items-center px-8 py-3 shadow-xl flex-col sm:flex-row space-y-6 sm:space-y-0">
       <img src={logo} alt="logo" />
 
       <form
@@ -25,7 +25,7 @@ const Navbar = () => {
           type="text"
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search experiences"
-          className="bg-[#EDEDED] p-3 w-[300px] rounded-md text-xs font-light focus:outline-none"
+          className="bg-[#EDEDED] p-3 md:w-[300px] rounded-md text-xs font-light focus:outline-none"
         />
         <button
           type="submit"
